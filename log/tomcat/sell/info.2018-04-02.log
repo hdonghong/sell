@@ -1,0 +1,14 @@
+Starting LoggerTest on LAPTOP-0GL3T8P4 with PID 9980 (started by Lenovo in F:\repository_git\sell)
+No active profile set, falling back to default profiles: default
+Refreshing org.springframework.web.context.support.GenericWebApplicationContext@27508c5d: startup date [Mon Apr 02 21:57:20 CST 2018]; root of context hierarchy
+Looking for @ControllerAdvice: org.springframework.web.context.support.GenericWebApplicationContext@27508c5d: startup date [Mon Apr 02 21:57:20 CST 2018]; root of context hierarchy
+Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+Started LoggerTest in 2.528 seconds (JVM running for 3.449)
+user: root, password: toor
+info...
+warn
+Closing org.springframework.web.context.support.GenericWebApplicationContext@27508c5d: startup date [Mon Apr 02 21:57:20 CST 2018]; root of context hierarchy

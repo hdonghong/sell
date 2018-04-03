@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: toor
+    url: jdbc:mysql://192.168.25.129/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+#  jackson:
+#    default-property-inclusion: non_null
+#  redis:
+server:
+  context-path: /sell
+#logging:
+#  pattern:
+#    console: "%d -%msg%n"
+# 一个就好了，默认名字是spring.log
+#  path: F://repository_git/sell/log/tomcat/
+#  file: F://repository_git/sell/log/tomcat/sell.log
+#  level:
+#    pers.hdh.sell.LoggerTest: info
