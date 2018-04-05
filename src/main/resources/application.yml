@@ -21,3 +21,7 @@ server:
 #  file: F://repository_git/sell/log/tomcat/sell.log
 #  level:
 #    pers.hdh.sell.LoggerTest: info
+
+wechat:
+  mpAppId: wxa8c24bb0b6a0cdad
+  mpAppSecret: d8779ad92a513f530146dc355b73c59c
