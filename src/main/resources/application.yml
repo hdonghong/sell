@@ -4,10 +4,12 @@ spring:
     username: root
     password: toor
     url: jdbc:mysql://192.168.25.129/sell?characterEncoding=utf-8&useSSL=false
+  # 展示sql语句
   jpa:
     show-sql: true
-#  jackson:
-#    default-property-inclusion: non_null
+  # 传给前端时，对于值为null的对象属性值，隐藏此属性
+  jackson:
+    default-property-inclusion: non_null
 #  redis:
 server:
   context-path: /sell

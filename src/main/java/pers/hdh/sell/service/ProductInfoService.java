@@ -3,6 +3,7 @@ package pers.hdh.sell.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import pers.hdh.sell.dataobject.ProductInfo;
+import pers.hdh.sell.dto.CartDto;
 
 import java.util.List;
 
@@ -31,7 +32,15 @@ public interface ProductInfoService {
 
     ProductInfo save(ProductInfo productInfo);
 
-    // 加库存
+    /**
+     * 加库存
+     * @param cartDtoList
+     */
+    void increaseStock(List<CartDto> cartDtoList);
 
-    // 减库存
+    /**
+     * 减库存
+     * @param cartDtoList
+     */
+    void decreaseStock(List<CartDto> cartDtoList);
 }
