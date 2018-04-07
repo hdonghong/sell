@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class WeChatMpConfig {
 
     @Autowired
-    private WeChatAccountConfig accountConfig;
+    private WechatAccountConfig accountConfig;
 
     @Bean
     public WxMpService wxMpService() {

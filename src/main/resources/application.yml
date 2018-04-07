@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: toor
-    url: jdbc:mysql://192.168.25.129/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://sell.com/sell?characterEncoding=utf-8&useSSL=false
   # 展示sql语句
   jpa:
     show-sql: true
@@ -25,3 +25,7 @@ server:
 wechat:
   mpAppId: wxa8c24bb0b6a0cdad
   mpAppSecret: d8779ad92a513f530146dc355b73c59c
+  mchId:
+  mchKey:
+  keyPath:
+  notifyUrl: http://xm7n9h.natappfree.cc/sell/pay/notify

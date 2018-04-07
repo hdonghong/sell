@@ -22,6 +22,7 @@ import pers.hdh.sell.dto.CartDto;
 import pers.hdh.sell.dto.OrderDto;
 import pers.hdh.sell.exception.SellException;
 import pers.hdh.sell.service.OrderService;
+import pers.hdh.sell.service.PayService;
 import pers.hdh.sell.service.ProductInfoService;
 import pers.hdh.sell.utils.KeyUtil;
 
@@ -42,10 +43,15 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductInfoService productInfoService;
+
     @Autowired
     private OrderMasterRepository orderMasterRepository;
+
     @Autowired
     private OrderDetailRepository orderDetailRepository;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -153,7 +159,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 如果已支付，需要退款
         if (orderMaster.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            // TODO
+            payService.refund(orderDto);
         }
 
         return orderDto;
