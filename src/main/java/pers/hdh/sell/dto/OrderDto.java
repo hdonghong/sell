@@ -1,9 +1,13 @@
 package pers.hdh.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
+import pers.hdh.sell.constants.OrderStatusEnum;
+import pers.hdh.sell.constants.PayStatusEnum;
 import pers.hdh.sell.dataobject.OrderDetail;
+import pers.hdh.sell.utils.EnumUtil;
 import pers.hdh.sell.utils.serializer.Date2LongSerializer;
 
 import javax.persistence.Id;
@@ -56,4 +60,13 @@ public class OrderDto {
 
     List<OrderDetail> orderDetailList;
 
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
 }

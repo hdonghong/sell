@@ -65,9 +65,18 @@ public class OrderServiceImplTest {
     public void findList() throws Exception {
         PageRequest request = new PageRequest(0, 2);
         Page<OrderDto> orderDtoPage = orderService.findList(BUYER_OPENID, request);
-        log.info("【查询用户的订单列表：orderDtoPage={}】", orderDtoPage);
+        log.info("【Test：查询用户的订单列表】 orderDtoPage={}", orderDtoPage);
         assertEquals(0, orderDtoPage.getNumber());
     }
+
+    @Test
+    public void testFindList() {
+        Page<OrderDto> orderDtoPage = orderService.findList(new PageRequest(0, 2));
+        log.info("【Test：查询所有订单列表】orderDtoPage={}", orderDtoPage);
+        Assert.assertEquals(0, orderDtoPage.getNumber());
+        Assert.assertTrue("查询所有订单列表", orderDtoPage.getTotalElements() > 0);
+    }
+
 
     @Test
     public void cancel() throws Exception {

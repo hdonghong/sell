@@ -94,5 +94,5 @@ public class BuyerOrderController {
                            @RequestParam("orderId") String orderId) {
         OrderDto orderDto = buyerService.cancelOrder(openid, orderId);
         return ResultVoUtil.success(orderDto);
-    }
+    }    // 取消订单
 }
