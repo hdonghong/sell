@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
+import pers.hdh.sell.constants.ProductStatusEnum;
 import pers.hdh.sell.dataobject.ProductInfo;
 import pers.hdh.sell.service.ProductInfoService;
 
@@ -56,4 +57,15 @@ public class ProductInfoServiceImplTest {
         Assert.assertNotNull(result);
     }
 
+    @Test
+    public void onSale() throws Exception {
+        ProductInfo productInfo = service.onSale("123456");
+        Assert.assertEquals(ProductStatusEnum.UP, productInfo.getProductStatusEnum());
+    }
+
+    @Test
+    public void offSale() throws Exception {
+        ProductInfo productInfo = service.offSale("123456");
+        Assert.assertEquals(ProductStatusEnum.DOWN, productInfo.getProductStatusEnum());
+    }
 }
