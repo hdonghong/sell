@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * WeChatMpConfig class<br/>
- * 微信公众号配置
+ * 微信公众平台配置
  * @author hdonghong
  * @date 2018/04/05
  */
