@@ -21,9 +21,7 @@ import pers.hdh.sell.dataobject.ProductInfo;
 import pers.hdh.sell.dto.CartDto;
 import pers.hdh.sell.dto.OrderDto;
 import pers.hdh.sell.exception.SellException;
-import pers.hdh.sell.service.OrderService;
-import pers.hdh.sell.service.PayService;
-import pers.hdh.sell.service.ProductInfoService;
+import pers.hdh.sell.service.*;
 import pers.hdh.sell.utils.KeyUtil;
 
 import java.math.BigDecimal;
@@ -52,6 +50,13 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private PushMessageService pushMessageService;
+
+    @Autowired
+    private WebSocket webSocket;
+
 
     @Override
     @Transactional
@@ -94,6 +99,9 @@ public class OrderServiceImpl implements OrderService {
                 .map(e -> new CartDto(e.getProductId(), e.getProductQuantity()))
                 .collect(Collectors.toList());
         productInfoService.decreaseStock(cartDtoList);
+
+        // 发送websocket消息
+        webSocket.sentMessage(orderDto.getOrderId());
 
         return orderDto;
     }
@@ -175,6 +183,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderDto finish(OrderDto orderDto) {
         // 判断订单状态
         if (!orderDto.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
@@ -196,6 +205,9 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】 更新失败，orderMaster={}", orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+
+        // 推送微信模板消息提示订单完成
+        pushMessageService.orderStatus(orderDto);
 
         return orderDto;
     }

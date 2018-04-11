@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import pers.hdh.sell.config.ProductUrlConfig;
+import pers.hdh.sell.config.ProjectUrlConfig;
 import pers.hdh.sell.constants.ResultEnum;
 import pers.hdh.sell.exception.SellException;
 
@@ -34,13 +34,13 @@ public class WechatController {
     private WxMpService wxOpenService;
 
     @Autowired
-    private ProductUrlConfig productUrlConfig;
+    private ProjectUrlConfig projectUrlConfig;
 
     @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         // 1.配置
         // 2.调用方法
-        String url = productUrlConfig.getWechatMpAuthorize() + "sell/wechat/userInfo";
+        String url = projectUrlConfig.getWechatMpAuthorize() + "sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_USER_INFO, URLEncoder.encode((returnUrl)));
         log.info("【微信网页授权】 获取code，redirectUrl={}", redirectUrl);
         return "redirect:" + redirectUrl;
@@ -62,7 +62,7 @@ public class WechatController {
 
     @GetMapping("/qrAuthorize")
     public String qrAuthorize(@RequestParam("state") String returnUrl) {
-        String url = productUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrAuthorize";
+        String url = projectUrlConfig.getWechatOpenAuthorize() + "/sell/wechat/qrAuthorize";
         String redirectUrl = wxOpenService.buildQrConnectUrl(url, WxConsts.QRCONNECT_SCOPE_SNSAPI_LOGIN, URLEncoder.encode(returnUrl));
         return "redirect:" + redirectUrl;
     }

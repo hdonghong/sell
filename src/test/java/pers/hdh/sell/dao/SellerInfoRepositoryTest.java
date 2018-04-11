@@ -24,7 +24,7 @@ public class SellerInfoRepositoryTest {
         sellerInfo.setSellerId(KeyUtil.getUniqueKey());
         sellerInfo.setUsername("admin");
         sellerInfo.setPassword("admin");
-        sellerInfo.setOpenid("abc");
+        sellerInfo.setOpenid("oReRW1LlHXe-MZxueuBgjs53ghRY");
 
         SellerInfo result = repository.save(sellerInfo);
         Assert.assertNotNull(result);

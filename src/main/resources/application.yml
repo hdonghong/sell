@@ -10,7 +10,10 @@ spring:
   # 传给前端时，对于值为null的对象属性值，隐藏此属性
   jackson:
     default-property-inclusion: non_null
-#  redis:
+  redis:
+    host: 192.168.25.130
+    port: 6379
+#    password:
 server:
   context-path: /sell
 #logging:
@@ -30,9 +33,11 @@ wechat:
   mchId:
   mchKey:
   keyPath:
-  notifyUrl: http://xm7n9h.natappfree.cc/sell/pay/notify
+  notifyUrl: http://xpbnwg.natappfree.cc/sell/pay/notify
+  templateId:
+    orderStatus: zdE6rh9e883BikB2xmKm_XJ_12p9fJsfppvo1n7nt_4
 
 projectUrl:
-  wechatMpAuthorize: http://xm7n9h.natappfree.cc/
-  wechatOpenAuthorize: http://xm7n9h.natappfree.cc/
-  sell:
+  wechatMpAuthorize: http://xpbnwg.natappfree.cc
+  wechatOpenAuthorize: http://xpbnwg.natappfree.cc
+  sell: http://xpbnwg.natappfree.cc

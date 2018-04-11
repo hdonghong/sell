@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * WeixinController class<br/>
- *
+ * 因为有了WechatController，故被淘汰<br/>
  * @author hdonghong
  * @date 2018/04/05
  */
