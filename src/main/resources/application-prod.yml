@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: toor
+    url: jdbc:mysql://sell.com/sell?characterEncoding=utf-8&useSSL=false
+#  生产环境下不展示sql语句
+#  jpa:
+#    show-sql: true
+  # 传给前端时，对于值为null的对象属性值，隐藏此属性
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 192.168.25.130
+    port: 6379
+#    password:
+
+server:
+  context-path: /sell
+#logging:
+#  pattern:
+#    console: "%d -%msg%n"
+# 一个就好了，默认名字是spring.log
+#  path: F://repository_git/sell/log/tomcat/
+#  file: F://repository_git/sell/log/tomcat/sell.log
+#  level:
+#    pers.hdh.sell.LoggerTest: info
+#    设置显示mybatis sql
+#    pers.hdh.sell.dataobject.mapper: trace
+
+wechat:
+  mpAppId: wxa8c24bb0b6a0cdad
+  mpAppSecret: d8779ad92a513f530146dc355b73c59c
+  openAppId:
+  openAppSecrect:
+  mchId:
+  mchKey:
+  keyPath:
+  notifyUrl: http://xpbnwg.natappfree.cc/sell/pay/notify
+  templateId:
+    orderStatus: zdE6rh9e883BikB2xmKm_XJ_12p9fJsfppvo1n7nt_4
+
+projectUrl:
+  wechatMpAuthorize: http://xpbnwg.natappfree.cc
+  wechatOpenAuthorize: http://xpbnwg.natappfree.cc
+  sell: http://xpbnwg.natappfree.cc
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

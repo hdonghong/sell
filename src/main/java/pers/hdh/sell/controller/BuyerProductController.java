@@ -2,6 +2,7 @@ package pers.hdh.sell.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,7 @@ public class BuyerProductController {
     private ProductCategoryService categoryService;
 
     @GetMapping("/list")
+    @Cacheable(cacheNames = "product", key = "controller_123", unless = "#result.getCode() != 0")// 缓存存，key可通过方法参数值动态设置，格式：#参数名
     public ResultVo list() {
         // 1.查询所有商品
         List<ProductInfo> productInfoList = infoService.findUpAll();

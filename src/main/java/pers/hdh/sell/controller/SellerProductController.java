@@ -2,6 +2,8 @@ package pers.hdh.sell.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -119,6 +121,8 @@ public class SellerProductController {
      * @return
      */
     @PostMapping("/save")
+//    @CachePut(cacheNames = "product", key = "controller_123")// 更新缓存，但由于与BuyerProductController中相同key的缓存返回值不同而不能使用
+    @CacheEvict(cacheNames = "product", key = "controller_123")// 删除缓存，删除缓存解决上述问题
     public ModelAndView save(@Valid ProductFrom form,
                              BindingResult bindingResult,
                              Map<String, Object> map) {

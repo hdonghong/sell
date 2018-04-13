@@ -8,6 +8,7 @@ import pers.hdh.sell.utils.EnumUtil;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -20,7 +21,9 @@ import java.util.Date;
 @Entity
 @Data
 @DynamicUpdate
-public class ProductInfo {
+public class ProductInfo implements Serializable {
+
+    private static final long serialVersionUID = -8910179045688969962L;
 
     /** 商品编号id */
     @Id

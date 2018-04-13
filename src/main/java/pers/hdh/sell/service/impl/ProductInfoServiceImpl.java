@@ -2,6 +2,9 @@ package pers.hdh.sell.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -24,12 +27,14 @@ import java.util.List;
  */
 @Service
 @Slf4j
+//@CacheConfig(cacheNames = "product")// 可直接在类上加注解，该类中缓存名都为product
 public class ProductInfoServiceImpl implements ProductInfoService {
 
     @Autowired
     private ProductInfoRepository productInfoRepository;
 
     @Override
+//    @Cacheable(cacheNames = "product", key = "service_123")// 设置缓存，不设置key时默认为方法的参数名，productId
     public ProductInfo findOne(String productId) {
         return productInfoRepository.findOne(productId);
     }
@@ -45,6 +50,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     }
 
     @Override
+//    @CachePut(cacheNames = "product", key = "service_123")// 更新缓存
     public ProductInfo save(ProductInfo productInfo) {
         return productInfoRepository.save(productInfo);
     }

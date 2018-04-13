@@ -1,0 +1,15 @@
+
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field secKillService in pers.hdh.sell.controller.SecKillController required a bean of type 'pers.hdh.sell.service.SecKillService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'pers.hdh.sell.service.SecKillService' in your configuration.
+
