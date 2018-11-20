@@ -78,12 +78,12 @@
         }
         # 保存退出后刷新配置
         nginx -s reload
-     
+  
 *   打包项目
 
     	# 项目主目录下
     	mvn clean package -Dmaven.test.skip=true
-    	
+    
 *   linux下运行项目
 
         # 启动命令（[]中内容表示可选）
@@ -93,14 +93,28 @@
         nohup java -jar jar包名 &
 
 ## 最后
-各位大佬，项目若是对您有一丝帮助还望给个star，这将给予我莫大的鼓舞，感谢各位。另外哪个地方出错也请指出，哪个问题想讨论，可提issue可寄邮件给我。（项目学习自某Mooc收费视频）
+各位大佬，项目若是对您有一丝帮助还望给个star，这将给予我莫大的鼓舞，感谢各位。另外哪个地方出错也请指出，哪个问题想讨论，可提issue可寄邮件给我。
 
-  [1]: https://pan.baidu.com/s/1APzfHmSRV_fPk07TkelDFA
-  [2]: https://github.com/hdonghong/sell/tree/master/other/doc/show.md
-  [3]: https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
-  [4]: https://github.com/hdonghong/sell/tree/master/other/doc/VM.md
-  [5]: https://github.com/hdonghong/sell/tree/master/other/doc/SQL.md
-  [6]: https://github.com/hdonghong/sell/tree/master/other/doc/API.md
-  [7]: https://github.com/hdonghong/sell/tree/master/other/doc/show.md
-  [8]: https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842
-  [9]: https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN&token=7080b04f0b3bfac25e563c47068b897a81bc7e56
+## 2018-11-20 更新
+
+目前项目进行二次开发后使用于一家外卖店，作为他们的订单系统。新增的技术点如下：
+
+* 注解 + 接口限流 + 鉴权
+* 封装RestTemplate + 保证唯一的Key前缀
+* Swagger
+* Mybatis-Plus
+* Guava
+
+出于安全性，本项目不再提供更新版本。不过若您想了解我上述提到的技术点的实现，可以查看我的开源作品 [lifeup](https://github.com/hdonghong/lifeup) ，是作为一款Android APP的后端实现，目前已上架到酷安上，欢迎了解。
+
+
+
+[1]: https://pan.baidu.com/s/1APzfHmSRV_fPk07TkelDFA
+[2]: https://github.com/hdonghong/sell/tree/master/other/doc/show.md
+[3]: https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login
+[4]: https://github.com/hdonghong/sell/tree/master/other/doc/VM.md
+[5]: https://github.com/hdonghong/sell/tree/master/other/doc/SQL.md
+[6]: https://github.com/hdonghong/sell/tree/master/other/doc/API.md
+[7]: https://github.com/hdonghong/sell/tree/master/other/doc/show.md
+[8]: https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842
+[9]: https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;lang=zh_CN&amp;token=7080b04f0b3bfac25e563c47068b897a81bc7e56
